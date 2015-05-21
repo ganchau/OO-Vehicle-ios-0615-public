@@ -6,6 +6,10 @@
 //  Copyright (c) 2014 FIS. All rights reserved.
 //
 
+#import "FISCar.h"
+#import "FISPlane.h"
+#import "FISRaceCar.h"
+#import "FISVehicle.h"
 #import "FISAppDelegate.h"
 
 @implementation FISAppDelegate
@@ -16,6 +20,37 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
+    FISCar *car = [[FISCar alloc] init];
+    FISPlane *plane = [[FISPlane alloc] init];
+    FISRaceCar *raceCar = [[FISRaceCar alloc] init];
+    
+    [car increaseSpeed];
+    [car brake];
+    [car turnLeft];
+    [car turnLeft];
+    [car turnRight];
+    NSLog(@"Car's weight: %.1f, top speed: %.1f, current speed: %.1f, current direction: %.1f",
+          car.weight, car.topSpeed, car.currentSpeed, car.currentDirection);
+    
+    [plane increaseSpeed];
+    [plane brake];
+    [plane turnLeft];
+    [plane turnRight];
+    [plane turnRight];
+    [plane increaseAltitude];
+    [plane decreaseAltitude];
+     NSLog(@"Planes's weight: %.1f, top speed: %.1f, current speed: %.1f, current direction: %.1f",
+           plane.weight, plane.topSpeed, plane.currentSpeed, plane.currentDirection);
+    
+    [raceCar increaseSpeed];
+    [raceCar brake];
+    [raceCar turnLeft];
+    [raceCar turnRight];
+    [raceCar turnLeft];
+     NSLog(@"Race Car's weight: %.1f, top speed: %.1f, current speed: %.1f, current direction: %.1f",
+           raceCar.weight, raceCar.topSpeed, raceCar.currentSpeed, raceCar.currentDirection);
+    
     return YES;
 }
 
